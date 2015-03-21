@@ -35,11 +35,11 @@ window.Chats = {};
   }
 
   function chatsForm(){
-
+    //debugger;
     return $('<div class="heading">').append($('<h3>').text("Chatitude"))
       .append($('<form name="chatForm">').on('sumbit', function(e){
         e.preventDefault()
-      })).append(
+      }).append(
         $('<label>').text('User Name: '),
         $('<input type="text" id="username" name="username" >'),
         $('<label>').text('Password: '),
@@ -47,13 +47,19 @@ window.Chats = {};
         $('<label>').text('Message: '),
         $('<input type="text" id="message" name="message" >'),
         $('<br><button id="btnSignup">').text('SIGN-UP')
-          .on('click', Chats.controller.signup($('#username').val(),$('#password').val())),
+          .on('click', function(){
+            Chats.controller.signup($('#username').val(),$('#password').val())
+          }),
         $('<button id="btnSignin">').text('SIGN-IN')
-          .on('click', Chats.controller.signin($('#username').val(),$('#password').val())),
+          .on('click', function(){
+            Chats.controller.signin($('#username').val(),$('#password').val())
+          }),
         $('<button id="btnPost">').text('POST')
-            .on('click', Chats.controller.postMessage($('#message').val()))    
+            .on('click', function(){
+              Chats.controller.postMessage($('#message').val())
+            })    
         )         
-      //)
+      )
     }
 
   function chatsView(chat){
@@ -78,7 +84,7 @@ window.Chats = {};
   Chats.render = function (element){
     var chatsDOM = chatsForm()
       var myChats = ChatList.getData();
-      $(element).append(chatsDOM);
+      $(element).empty().append(chatsDOM);
       for(var i = myChats.length - 1; i >= 0; i--){
           $(element).append(chatsView(myChats[i]))
       }      
