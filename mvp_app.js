@@ -20,11 +20,10 @@
 
     this.render = function (){
       var myChats = ChatList.getData();
-
+      $view.append(Chats.view);
       for(var i =0; i < myChats.length; i++){
 
           $view.append(chatsView(myChats[i]))
-          console.log("myChats[i]: ", myChats[i])
       }
       
     }
@@ -39,16 +38,14 @@
     return $('<div class="heading">').append(
       $('<h3>').text("Chatitude")
 
-    )
-    
-
-  }
+      )
+    }
 
   function chatsView(chat){
     //user
     //message
     return $('<div class="chat">').append(
-      $('<div>').append('User :', chat.user),
+      $('<div>').append('User : ', chat.user),
       //$('<div>').append('Message : ', chat.message)
       $('<div>').append('Message : ', Chats.cleanChat(chat.message)) 
     )    
@@ -65,7 +62,7 @@
 
   Chats.mount = function(element){
     var presenter = new Chats.Presenter(element);
-    presenter.render();
+    //presenter.render();
   }
 
 })()
