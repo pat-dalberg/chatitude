@@ -28,6 +28,9 @@
       }
       
     }
+
+
+
     App.pubsub.on('fetch_success', this.render)
 
   }
@@ -45,11 +48,20 @@
     //user
     //message
     return $('<div class="chat">').append(
-      $('<div>').append('User', chat.user),
-      $('<div>').append('Message : ', chat.message) 
+      $('<div>').append('User ', chat.user),
+      $('<div>').append('Message : ', chat.message)
+      //$('<div>').append('Message : ', Chats.cleanChat(chat.message)) 
     )    
 
   }
+
+  Chats.cleanChat = function(string){
+      if(typeof string !== string){
+        return '';
+      }
+      var re = new RegExp("<|>addEventListener","g")
+      return string.replace(re,"")
+    }
 
   Chats.mount = function(element){
     var presenter = new Chats.Presenter(element);
