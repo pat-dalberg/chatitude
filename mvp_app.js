@@ -46,7 +46,7 @@
     this.render = function (){
       var myChats = ChatList.getData();
       $view.append(Chats.view);
-      for(var i =0; i < myChats.length; i++){
+      for(var i = myChats.length - 1; i >= 0; i--){
 
           $view.append(chatsView(myChats[i]))
       }      
