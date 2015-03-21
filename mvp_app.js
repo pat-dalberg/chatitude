@@ -26,6 +26,23 @@
       ChatList.signup(user,pwd);
     });
 
+    $view.on('click','#btnSignin', function(e){
+      //console.log('clicked signup button')
+      e.preventDefault();
+      var user = $('#username').val();
+      var pwd = $('#password').val();
+      ChatList.signin(user,pwd);
+    });
+
+    $view.on('click','#btnPost', function(e){
+      //console.log('clicked signup button')
+      e.preventDefault();
+      var msg = $('#message').val();
+      ChatList.postMessage(msg);
+    });
+
+
+
     this.render = function (){
       var myChats = ChatList.getData();
       $view.append(Chats.view);
