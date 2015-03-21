@@ -35,9 +35,11 @@
   }
 
   Chats.view = function(){
-    return $('<div class="heading">').append(
-      $('<h3>').text("Chatitude")
-
+    return $('<div class="heading">').append($('<h3>').text("Chatitude"))
+      .append($('<form name="chatForm">')
+          .append($('<button>').text('SIGN-UP'))
+          .append($('<button>').text('SIGN-IN'))
+          .append($('<button>').text('POST'))
       )
     }
 
