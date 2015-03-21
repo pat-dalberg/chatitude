@@ -79,14 +79,6 @@
       })
     },
 
-    // sendChat: function(){
-    //   $.ajax({
-    //   type: 'POST',
-    //   url: 'http://chat.api.mks.io/chats'
-    //   }).success(function (chats) {
-    //     console.log("Got chats:", chats)
-    //   })
-    // },
 
     getData: function(){
       return data;
